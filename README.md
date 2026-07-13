@@ -150,13 +150,17 @@ Authorization: Bearer TOKEN_AQUI
 
 ## Despliegue en la nube
 
-Para cumplir con despliegue, el backend debe estar publicado en una plataforma cloud como:
+El backend está desplegado en Railway:
 
-- Railway
-- Render
-- Fly.io
+https://cruz-del-sur-backend-production.up.railway.app
 
-También se debe usar una base de datos MySQL en la nube.
+La base de datos utilizada es MySQL en Railway.
+
+El backend se conecta con el frontend desplegado en Netlify:
+
+https://stately-chaja-5a3d6b.netlify.app
+
+
 
 ## Configuración recomendada para producción
 
@@ -196,7 +200,7 @@ https://URL-DE-TU-FRONTEND
 
 ## URL del backend desplegado
 
-https://URL-DE-TU-BACKEND
+https://cruz-del-sur-backend-production.up.railway.app
 
 ## Frontend relacionado
 
@@ -217,3 +221,20 @@ Nota: las pruebas pueden requerir conexión a MySQL si cargan el contexto comple
 El backend cuenta con API REST, autenticación JWT, validaciones, manejo de errores, servicios, repositorios y conexión con MySQL.
 
 Para producción se recomienda reforzar la seguridad, proteger endpoints administrativos, mover credenciales a variables de entorno y desplegar el backend junto con una base de datos en la nube.
+## Seguridad
+
+El backend implementa autenticación con JWT y Spring Security.
+
+Características principales:
+
+- Login mediante `/auth/login`.
+- Generación de token JWT.
+- Validación del token en rutas protegidas.
+- Contraseñas encriptadas con BCrypt.
+- CORS configurado para permitir el frontend desplegado en Netlify.
+- Protección de rutas privadas mediante autenticación.
+
+Pendiente de mejora:
+
+- Proteger completamente las rutas de usuarios.
+- Mover la clave secreta JWT a variables de entorno.
